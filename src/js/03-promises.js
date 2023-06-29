@@ -12,7 +12,7 @@ refs.form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(evt) {
   evt.preventDefault();
   //console.log(refs.amountArea.value);
-  for (let index = 0; index < Number(refs.amountArea.value); index++) {
+  for (let index = 0; index < Number(refs.amountArea.value); index+=1) {
     createPromise(
       index,
       Number(refs.delayArea.value) + Number(refs.stepArea.value) * index
@@ -24,7 +24,7 @@ function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
-      result = {
+      const result = {
         pos: position + 1,
         del: delay,
       };
